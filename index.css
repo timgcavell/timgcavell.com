@@ -1,0 +1,27 @@
+@charset "utf-8";
+
+body {
+  padding-top: 2%;
+  padding-left: 8%;
+  padding-right: 8%;
+  font-family: Geneva, sans-serif;
+  line-height: 1.8em;
+  color: #313435;
+  background-color: #d7dfe0;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #a8b2b5;
+  margin-top: 1em;
+  margin-bottom: 2em;
+}
+
+a {
+  text-decoration: none;
+  color: #313435;
+  border-width: 0 0 1px 0;
+  border-style: dotted;
+}
