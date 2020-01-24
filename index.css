@@ -10,6 +10,16 @@ body {
   background-color: #d7dfe0;
 }
 
+h2 {
+  font-size: .8em;
+}
+
+article {
+  width: 42em;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
 hr {
   display: block;
   height: 1px;
