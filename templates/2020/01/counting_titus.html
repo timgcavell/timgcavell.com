@@ -1,16 +1,5 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <title>Counting Titus</title>
-  <link rel="stylesheet" type="text/css" href="/index.css" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="apple-touch-icon-precomposed" href="/favicon.png">
-  <link rel="icon" type="image/png" href="/favicon.png">
-</head>
-
-<body>
+{{define "title"}}Counting Titus{{end}}
+{{define "body"}}
   <article>
     <h1>Counting Titus</h1>
     <h2>Thursday, 23 January 2020</h2>
@@ -19,7 +8,7 @@
       I needed a message counter. There’s this distributed message processing system that takes messages in, works on them, passing them around, then finally sends some messages back out. I wanted to know precisely how many messages went in, how many were passed around, and how many came out.
     </p>
     <p>
-      Because the system is distributed, an in memory counter wouldn’t do. I need to persist the counts somewhere that all parts of the system could access. The system—that’s getting old, let’s give it a name: Titus. Every part of <strike>the system</strike> Titus has access to a centralized Redis cache and so was the obvious choice.
+      Because the system is distributed, an in memory counter wouldn’t do. I need to persist the counts somewhere that all parts of the system could access. The system—that's getting old, let’s give it a name: Titus. Every part of <strike>the system</strike> Titus has access to a centralized Redis cache and so was the obvious choice.
     </p>
     <p>
       My first and naive approach incremented a counter at a key in the cache every time a message came in and every time a message went out. I implemented this, tested it to make sure the counts were correct, and it was deployed. Let’s count those messages!
@@ -34,7 +23,7 @@
       The solution: merge the two approaches. Every part of the system keeps its own counts in memory. While processing a message, Titus never communicates to an external system its message counts. Every minute, out of band of the message processing, Titus retrieves its internal counts, resets them to zero, and increments the true persistent counts.
     </p>
     <p>
-      This may sound familiar. The problem’s been solved and the industry term is eventual consistency. All distributed systems rely on this concept. As things change, every facet of the system won’t have identical or the most current information. But given enough time, the true state will propagate to the entire system.
+      This may sound familiar. The problem's been solved and the industry term is eventual consistency. All distributed systems rely on this concept. As things change, every facet of the system won’t have identical or the most current information. But given enough time, the true state will propagate to the entire system.
     </p>
     <p>
       For Titus, this means compromise. While messages are in flight, Titus cannot say exactly how many messages have been processed. But given a couple minutes of down time, the counts are available. If that downtime never occurs, Titus can only give a best guess of current message counts.
@@ -43,6 +32,4 @@
       This trade off in the name of speed has been worth it. Titus gives a good estimate of messages through the system and importantly does not sacrifice on speed. Constant and exact consistency in a system like Titus is not often possible. But with multiple layers of caching and persistence and a little bit of patience we can find the truth.
     </p>
   </article>
-</body>
-
-</html>
+{{end}}
