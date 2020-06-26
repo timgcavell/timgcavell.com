@@ -4,16 +4,21 @@ body {
   padding-top: 2%;
   padding-left: 8%;
   padding-right: 8%;
+  padding-bottom: 5%;
   font-family: Geneva, sans-serif;
   line-height: 1.8em;
-  color: #313435;
-  background-color: #e3e7e7;
+  color: #0b4d47;
+  background-color: #fdfbf5;
   margin: 0 auto;
   max-width: 42em;
 }
 
 h2 {
   font-size: .8em;
+}
+
+h3 {
+  color: #c46262;
 }
 
 article {
@@ -25,7 +30,7 @@ hr {
   display: block;
   height: 1px;
   border: 0;
-  border-top: 2px solid #4e5a5e;
+  border-top: 2px solid #c46262;
   margin-top: 1em;
   margin-bottom: 2em;
 }
@@ -41,6 +46,7 @@ li {
   padding: .25em;
 }
 
-a:hover {
-  color: rgb(225, 83, 66)
+a:hover,
+a:focus {
+  color: #c46262;
 }
