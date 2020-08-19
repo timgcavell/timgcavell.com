@@ -1,6 +1,7 @@
 {{define "layout"}}
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>{{template "title"}}</title>
@@ -10,8 +11,21 @@
   <link rel="apple-touch-icon-precomposed" href="/static/images/favicon.png">
   <link rel="icon" type="image/png" href="/static/images/favicon.png">
 </head>
+
 <body>
-  {{template "body"}}
+  <header>
+    {{template "header"}}
+  </header>
+  <nav>
+    <a class="nav-link" href="/">Home</a>
+    <a class="nav-link" href="mailto:me@timgcavell.com">Email</a>
+    <a class="nav-link" href="https://github.com/timgcavell">Code</a>
+    <a class="nav-link" href="https://twitter.com/timcavell">Tweets</a>
+  </nav>
+  <main>
+    {{template "main"}}
+  </main>
 </body>
+
 </html>
 {{end}}

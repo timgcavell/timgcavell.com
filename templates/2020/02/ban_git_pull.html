@@ -1,9 +1,10 @@
 {{define "title"}}Ban Git Pull{{end}}
-{{define "body"}}
+{{define "header"}}
+<h1>Ban Git Pull</h1>
+<h2>Sunday, 23 February 2020</h2>
+{{end}}
+{{define "main"}}
 <article>
-  <h1>Ban Git Pull</h1>
-  <h2>Sunday, 23 February 2020</h2>
-  <hr />
   <p>Software development has mostly settled on git as the primary version control system. That’s great because it’s a flexible and powerful tool. It also sucks because it’s a cryptic and unintuitive program.</p>
   <h3>Abstractions Leaking Everywhere</h3>
   <p>
@@ -23,7 +24,7 @@
     <br><code>git checkout origin/master # Checkout the latest commit on master</code>
     <br><code>git checkout -b feature/foo # Create and checkout my feature branch</code>
     <br><em>Make code changes</em>
-    <br><code>git commit # Commit changes to the local repository</code> 
+    <br><code>git commit # Commit changes to the local repository</code>
     <br><code>git push --set-upstream origin feature/foo # Sync branch with the remote repository</code>
   </p>
   <p>
@@ -34,17 +35,17 @@
   </p>
   <p>
     A few things may stand out about this process:
-    <ol>
-      <li>
-        I never run run <code>git merge</code> or <code>git pull</code>.
-      </li>
-      <li>
-        I never checkout a local version of master.
-      </li>
-      <li>
-        I force push my feature branch.
-      </li>
-    </ol>
+  <ol>
+    <li>
+      I never run run <code>git merge</code> or <code>git pull</code>.
+    </li>
+    <li>
+      I never checkout a local version of master.
+    </li>
+    <li>
+      I force push my feature branch.
+    </li>
+  </ol>
   </p>
   <ol>
     <li>
@@ -66,7 +67,7 @@
     My most basic git alias may seem unnecessary and might be but it gives me a little joy every time I use it and slightly speeds up every other command.
   </p>
   <p>
-    <code>alias gfa='git fetch —-all'</code><br>
+    <code>alias gfa='git fetch --all'</code><br>
     Get all the latest changes from all remote repositories.
   </p>
   <p>
