@@ -5,6 +5,7 @@
   --clr-text: #0b4d47;
   --clr-accent: #c46262;
   --clr-link: #313435;
+  --clr-code: #dadfe0;
 }
 
 body {
@@ -50,6 +51,12 @@ a {
 
 li {
   padding: .25em;
+}
+
+code {
+  background-color: var(--clr-code);
+  padding: 2px;
+  font-size: .9em;
 }
 
 a:hover,
