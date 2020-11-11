@@ -56,7 +56,7 @@
   <p>
     You are asking for a bean that is not explicitly defined. I’d hope the application would fail to start; fail fast to avoid a bug. Nope, Spring tries to be smart. It tries to find <em>something</em> that could satisfy that bean requirement, and sometimes, it succeeds.
   </p>
-  </p>
+  <p>
   One of Spring’s automagic features is to provide a collection of all beans of a given type. If you want all <code>LoggingService</code> beans, you can use either of these:
   <code class="code-block">
     List&lt;LoggingService&gt; services;
